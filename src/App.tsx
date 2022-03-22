@@ -1,10 +1,11 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import Accordion from './components/Accordion/Accordion';
-import {Rating} from './components/Rating/Rating';
+import {Rating, RatingValueType} from './components/Rating/Rating';
+import UncontrolledAccordion from './components/Accordion/UncontrolledAccordion';
+import {UncontrolledRating} from './components/Rating/UncontrolledRating';
+import UncontrolledOnOff from './components/OnOff/UncontrolledOnOff';
 import OnOff from './components/OnOff/OnOff';
-import UncontrolledAccordion from './components/Accordion/SelfControlledAccordion';
-import {UncontrolledRating} from './components/Rating/SelfControlledRating';
 
 /*function sum(a: number, b: number) {
     alert(a + b)
@@ -15,6 +16,14 @@ sum(100, 300);*/
 
 // function declaration
 function App() {
+    console.log('App rendering')
+
+    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+
+    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+
+    let [onOff, setOnOff] = useState(false)
+
     // полезное что-то
 
     /*const [toggle, setToggle] = useState(false)*/
@@ -26,23 +35,32 @@ function App() {
             <PageTitle title={"My friends"}/>
             Article 1
             <Rating value={3}/>*/}
-            <Accordion titleValue={'Menu'} collapsed={true}/>
-            <Accordion titleValue={'Users'} collapsed={false}/>
+            <Accordion titleValue={'Menu'} accordionCollapsed={accordionCollapsed}
+                       setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}/>
+            <Accordion titleValue={'Users'} accordionCollapsed={accordionCollapsed}
+                       setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}/>
             {/*            Article 2*/}
-            <Rating value={0}/>
+            {/*          <Rating value={0}/>
             <Rating value={1}/>
             <Rating value={2}/>
             <Rating value={3}/>
             <Rating value={4}/>
-            <Rating value={5}/>
-            <OnOff/>
+            <Rating value={5}/>*/}
+            <UncontrolledOnOff/>
+            <UncontrolledOnOff/>
+
 
             <UncontrolledAccordion titleValue={'Menu'}/>
             <UncontrolledAccordion titleValue={'Users'}/>
 
-            <UncontrolledRating />
-
-
+            <UncontrolledRating/>
+            <UncontrolledRating/>
+<hr/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+            <Rating value={ratingValue} onClick={setRatingValue}/>
+<hr/>
+            <OnOff onOff={onOff} setOnOff={()=>setOnOff(!onOff)}/>
+            <OnOff onOff={onOff} setOnOff={()=>setOnOff(!onOff)}/>
 
 
             {/*         {toggle && <div className={s.switch}>

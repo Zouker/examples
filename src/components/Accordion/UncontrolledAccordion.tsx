@@ -8,25 +8,34 @@ type AccordionPropsType = {
 function UncontrolledAccordion(props: AccordionPropsType) {
     console.log('Accordion rendering')
 
-   // let [collapsed, setCollapsed] = useState(true);
+    let [collapsed, setCollapsed] = useState(true);
 
     return <div>
-        <AccordionTitle title={props.titleValue}/>
+        <AccordionTitle title={props.titleValue} onClick={() => {
+            setCollapsed(!collapsed)
+        }}/>
         {/*<button onClick={() => setCollapsed(!collapsed)}>TOGGLE</button>*/}
-        {/*{!collapsed && <AccordionBody/>}*/}
+       {!collapsed && <AccordionBody/>}
     </div>
 }
 
 type AccordionTitlePropsType = {
     title: string
+    onClick: () => void
 }
 
 function AccordionTitle(props: AccordionTitlePropsType) {
     console.log('AccordionTitle rendering')
-    let [collapsed, setCollapsed] = useState(true);
-
-    return <div onClick={()=> {setCollapsed(!collapsed)} }><h3>-- {props.title} --</h3> {!collapsed && <AccordionBody/>}</div>
+    return (
+        <h3 onClick={() => {
+            props.onClick()
+        }}>-- {props.title} --</h3>
+    )
 }
+
+
+/*    return <div onClick={()=> {setCollapsed(!collapsed)} }><h3>-- {props.title} --</h3> {!collapsed && <AccordionBody/>}</div>
+}*/
 
 function AccordionBody() {
     console.log('AccordionBody rendering')
