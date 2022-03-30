@@ -22,7 +22,7 @@ function App() {
 
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
 
-    let [onOff, setOnOff] = useState(false)
+    let [switchOn, setSwitchOn] = useState(false)
 
     // полезное что-то
 
@@ -35,9 +35,11 @@ function App() {
             <PageTitle title={"My friends"}/>
             Article 1
             <Rating value={3}/>*/}
-            <Accordion titleValue={'Menu'} accordionCollapsed={accordionCollapsed}
+            <Accordion titleValue={'Menu'}
+                       accordionCollapsed={accordionCollapsed}
                        setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}/>
-            <Accordion titleValue={'Users'} accordionCollapsed={accordionCollapsed}
+            <Accordion titleValue={'Users'}
+                       accordionCollapsed={accordionCollapsed}
                        setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}/>
             {/*            Article 2*/}
             {/*          <Rating value={0}/>
@@ -46,8 +48,8 @@ function App() {
             <Rating value={3}/>
             <Rating value={4}/>
             <Rating value={5}/>*/}
-            <UncontrolledOnOff/>
-            <UncontrolledOnOff/>
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
+            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
 
 
             <UncontrolledAccordion titleValue={'Menu'}/>
@@ -55,12 +57,12 @@ function App() {
 
             <UncontrolledRating/>
             <UncontrolledRating/>
-<hr/>
+            <hr/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
-<hr/>
-            <OnOff onOff={onOff} setOnOff={()=>setOnOff(!onOff)}/>
-            <OnOff onOff={onOff} setOnOff={()=>setOnOff(!onOff)}/>
+            <hr/>
+            <OnOff switchOn={switchOn} setSwitchOn={setSwitchOn}/>
+            <OnOff switchOn={switchOn} setSwitchOn={setSwitchOn}/>
 
 
             {/*         {toggle && <div className={s.switch}>
