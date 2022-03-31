@@ -1,18 +1,12 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from './components/Accordion/Accordion';
 import {Rating, RatingValueType} from './components/Rating/Rating';
-import UncontrolledAccordion from './components/UncontrolledAccordion/UncontrolledAccordion';
+import {Accordion} from './components/Accordion/Accordion';
+import {UncontrolledOnOff} from './components/UncontrolledOnOff/UncontrolledOnOff';
 import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
-import UncontrolledOnOff from './components/UncontrolledOnOff/UncontrolledOnOff';
-import OnOff from './components/OnOff/OnOff';
+import {OnOff} from './components/OnOff/OnOff';
+import {UncontrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
 
-/*function sum(a: number, b: number) {
-    alert(a + b)
-}
-
-sum(23, 12);
-sum(100, 300);*/
 
 // function declaration
 function App() {
@@ -55,8 +49,8 @@ function App() {
             <UncontrolledAccordion titleValue={'Menu'}/>
             <UncontrolledAccordion titleValue={'Users'}/>
 
-            <UncontrolledRating/>
-            <UncontrolledRating/>
+            <UncontrolledRating defaultValue={0} onChange={()=>{}}/>
+            <UncontrolledRating defaultValue={0} onChange={()=>{}}/>
             <hr/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
