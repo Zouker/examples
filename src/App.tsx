@@ -2,9 +2,9 @@ import React, {useState} from 'react';
 import './App.css';
 import Accordion from './components/Accordion/Accordion';
 import {Rating, RatingValueType} from './components/Rating/Rating';
-import UncontrolledAccordion from './components/Accordion/UncontrolledAccordion';
-import {UncontrolledRating} from './components/Rating/UncontrolledRating';
-import UncontrolledOnOff from './components/OnOff/UncontrolledOnOff';
+import UncontrolledAccordion from './components/UncontrolledAccordion/UncontrolledAccordion';
+import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
+import UncontrolledOnOff from './components/UncontrolledOnOff/UncontrolledOnOff';
 import OnOff from './components/OnOff/OnOff';
 
 /*function sum(a: number, b: number) {

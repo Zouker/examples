@@ -5,7 +5,7 @@ type PropsType = {
     setSwitchOn: (switchOn: boolean) => void
 }
 
-function OnOff(props: PropsType) {
+export function OnOff(props: PropsType) {
     console.log('OnOff rendering')
 
     console.log('on: ' + props.switchOn)
@@ -54,5 +54,3 @@ function OnOff(props: PropsType) {
         </div>
     )
 };
-
-export default OnOff;
