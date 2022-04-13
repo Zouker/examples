@@ -6,6 +6,26 @@ import {UncontrolledOnOff} from './components/UncontrolledOnOff/UncontrolledOnOf
 import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRating';
 import {OnOff} from './components/OnOff/OnOff';
 import {UncontrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
+import {Select} from './components/Select/Select';
+
+let items1 = [
+    {title: 'Pizza', value: 1},
+    {title: 'Sushi', value: 2},
+    {title: 'WOK', value: 3},
+]
+
+let items2 = [
+    {title: 'Dimych', value: 1},
+    {title: 'Valera', value: 2},
+    {title: 'Artem', value: 3},
+    {title: 'Viktor', value: 4}
+]
+
+let items3 = [
+    {value: 1, title: 'Minsk'},
+    {value: 2, title: 'Moscow'},
+    {value: 3, title: 'Kiev'},
+]
 
 
 // function declaration
@@ -29,10 +49,12 @@ function App() {
             <PageTitle title={"My friends"}/>
             Article 1
             <Rating value={3}/>*/}
-            <Accordion titleValue={'Menu'}
+            <Accordion color={'black'} onClick={() => {
+            }} items={items1} titleValue={'Menu'}
                        accordionCollapsed={accordionCollapsed}
                        setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}/>
-            <Accordion titleValue={'Users'}
+            <Accordion color={'black'} onClick={() => {
+            }} items={items2} titleValue={'Users'}
                        accordionCollapsed={accordionCollapsed}
                        setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}/>
             {/*            Article 2*/}
@@ -49,8 +71,10 @@ function App() {
             <UncontrolledAccordion titleValue={'Menu'}/>
             <UncontrolledAccordion titleValue={'Users'}/>
 
-            <UncontrolledRating defaultValue={0} onChange={()=>{}}/>
-            <UncontrolledRating defaultValue={0} onChange={()=>{}}/>
+            <UncontrolledRating defaultValue={0} onChange={() => {
+            }}/>
+            <UncontrolledRating defaultValue={0} onChange={() => {
+            }}/>
             <hr/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
             <Rating value={ratingValue} onClick={setRatingValue}/>
@@ -58,18 +82,10 @@ function App() {
             <OnOff switchOn={switchOn} setSwitchOn={setSwitchOn}/>
             <OnOff switchOn={switchOn} setSwitchOn={setSwitchOn}/>
 
-
-            {/*         {toggle && <div className={s.switch}>
-                <input type="checkbox" checked={props.switch}/>
-                <label><i></i></label>
-                <button className={s.greenButton} onClick={() => setToggle(state => !state)}></button>
-            </div>}
-            {!toggle &&  <div className={s.switch}>
-                <label>
-                    <input type="checkbox" checked={props.switch}/>
-                    <i></i></label>
-                <button className={s.redButton} onClick={() => setToggle(!toggle)}></button>
-            </div>} */}
+            <hr/>
+            <Select value={''} items={items3} onChange={(value) => {
+                alert(value)
+            }}/>
 
         </div>
     );
