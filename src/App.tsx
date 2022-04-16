@@ -27,66 +27,65 @@ let items3 = [
     {value: 3, title: 'Kiev'},
 ]
 
-
 // function declaration
 function App() {
     console.log('App rendering')
 
-    let [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    const [ratingValue, setRatingValue] = useState<RatingValueType>(0)
+    const [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+    const [accordionCollapsed2, setAccordionCollapsed2] = useState<boolean>(true)
+    const [switchOn, setSwitchOn] = useState(false)
+    const [select, setSelect] = useState('')
 
-    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(true)
+    const ControlledAccordionComponent = React.memo(Accordion)
+    const UncontrolledAccordionComponent = React.memo(UncontrolledAccordion)
+    const ControlledSwitchComponent = React.memo(OnOff)
+    const UncontrolledSwitchComponent = React.memo(UncontrolledOnOff)
+    const ControlledRatingComponent = React.memo(Rating)
+    const UncontrolledRatingComponent = React.memo(UncontrolledRating)
+    const ControlledSelectComponent = React.memo(Select)
 
-    let [switchOn, setSwitchOn] = useState(false)
-
-    // полезное что-то
-
-    /*const [toggle, setToggle] = useState(false)*/
-    // обязана вернуть JSX
-    console.log('App rendering')
     return (
         <div className={'App'}>
-            {/* <PageTitle title={"This is APP component"}/>
-            <PageTitle title={"My friends"}/>
-            Article 1
-            <Rating value={3}/>*/}
-            <Accordion color={'black'} onClick={() => {
+            <PageTitle title={'These are APP components:'}/>
+            <hr/>
+            Controlled Accordion
+            <hr/>
+            <ControlledAccordionComponent color={'black'} onClick={() => {
             }} items={items1} titleValue={'Menu'}
                        accordionCollapsed={accordionCollapsed}
                        setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}/>
-            <Accordion color={'black'} onClick={() => {
+            <ControlledAccordionComponent color={'black'} onClick={() => {
             }} items={items2} titleValue={'Users'}
-                       accordionCollapsed={accordionCollapsed}
-                       setAccordionCollapsed={() => setAccordionCollapsed(!accordionCollapsed)}/>
-            {/*            Article 2*/}
-            {/*          <Rating value={0}/>
-            <Rating value={1}/>
-            <Rating value={2}/>
-            <Rating value={3}/>
-            <Rating value={4}/>
-            <Rating value={5}/>*/}
-            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
-            <UncontrolledOnOff onChange={setSwitchOn}/> {switchOn.toString()}
-
-
-            <UncontrolledAccordion titleValue={'Menu'}/>
-            <UncontrolledAccordion titleValue={'Users'}/>
-
-            <UncontrolledRating defaultValue={0} onChange={() => {
-            }}/>
-            <UncontrolledRating defaultValue={0} onChange={() => {
-            }}/>
+                       accordionCollapsed={accordionCollapsed2}
+                       setAccordionCollapsed={() => setAccordionCollapsed2(!accordionCollapsed2)}/>
             <hr/>
-            <Rating value={ratingValue} onClick={setRatingValue}/>
-            <Rating value={ratingValue} onClick={setRatingValue}/>
+            Uncontrolled Accordion
             <hr/>
-            <OnOff switchOn={switchOn} setSwitchOn={setSwitchOn}/>
-            <OnOff switchOn={switchOn} setSwitchOn={setSwitchOn}/>
-
+            <UncontrolledAccordionComponent titleValue={'Menu'}/>
+            <UncontrolledAccordionComponent titleValue={'Users'}/>
             <hr/>
-            <Select value={''} items={items3} onChange={(value) => {
-                alert(value)
+            Controlled switch
+            <hr/>
+            <ControlledSwitchComponent switchOn={switchOn} setSwitchOn={setSwitchOn}/>
+            <hr/>
+            Uncontrolled switch
+            <hr/>
+            <UncontrolledSwitchComponent onChange={() => false}/>
+            <hr/>
+            Controlled Rating
+            <hr/>
+            <ControlledRatingComponent value={ratingValue} onClick={setRatingValue}/>
+            <hr/>
+            Uncontrolled Rating
+            <hr/>
+            <UncontrolledRatingComponent/>
+            <hr/>
+            Controlled Select
+            <hr/>
+            <ControlledSelectComponent value={select} items={items3} onChange={(value) => {
+                setSelect(value)
             }}/>
-
         </div>
     );
 }

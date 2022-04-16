@@ -24,28 +24,6 @@ export type AccordionPropsType = {
     color: string
 }
 
-/*function Accordion(props: AccordionPropsType) {
-    console.log("Accordion rendering")
-    if (props.collapsed === true) {
-        return <div>
-            <AccordionTitle title={props.titleValue}/>
-        </div>
-    } else {
-        return <div>
-            <AccordionTitle title={props.titleValue}/>
-            <AccordionBody/>
-        </div>
-    }
-}*/
-
-/*function Accordion(props: AccordionPropsType) {
-    console.log('Accordion rendering')
-    return <div>
-        <AccordionTitle title={props.titleValue}/>
-        {props.collapsed === false && <AccordionBody/>}
-    </div>
-}*/
-
 export function Accordion(props: AccordionPropsType) {
     console.log('Accordion rendering')
 
@@ -57,7 +35,6 @@ export function Accordion(props: AccordionPropsType) {
         {!props.accordionCollapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
     </div>
 }
-
 
 type AccordionTitlePropsType = {
     title: string

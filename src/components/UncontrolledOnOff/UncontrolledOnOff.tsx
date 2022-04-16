@@ -1,15 +1,13 @@
 import React, {useState} from 'react';
 
 type PropsType = {
-    // on: boolean
     onChange: (on: boolean) => void
-    defaultOn?: boolean
 }
 
 export function UncontrolledOnOff(props: PropsType) {
     console.log('UncontrolledOnOff rendering')
 
-    let [on, setOn] = useState(props.defaultOn ? props.defaultOn : false)
+    let [on, setOn] = useState(false)
 
     console.log('on: ' + on)
 
@@ -43,11 +41,9 @@ export function UncontrolledOnOff(props: PropsType) {
 
     const onClicked = () => {
         !on && setOn(true)
-        props.onChange(true)
     }
     const offClicked = () => {
         on && setOn(false)
-        props.onChange(false)
     }
 
     return (

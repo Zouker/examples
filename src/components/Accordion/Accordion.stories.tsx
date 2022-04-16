@@ -15,13 +15,13 @@ export default {
     argTypes: {
         color: {
             control: 'color',
-           ...GetCategoryObj('Colors')
+            ...GetCategoryObj('Colors')
         },
         onChange: {
-           ...GetCategoryObj('Events')
+            ...GetCategoryObj('Events')
         },
         onClick: {
-           ...GetCategoryObj('Events')
+            ...GetCategoryObj('Events')
         },
         items: {...GetCategoryObj('Main')},
         accordionCollapsed: {...GetCategoryObj('Main')},
@@ -74,6 +74,6 @@ ModeChanging.args = {
         {title: 'Viktor', value: 4}
     ],
     onClick: (value) => {
-        alert(`user with ID ${value} shoulf be happy`)
+        alert(`user with ID ${value} should be happy`)
     }
 }
