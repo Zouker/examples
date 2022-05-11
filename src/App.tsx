@@ -7,6 +7,7 @@ import {UncontrolledRating} from './components/UncontrolledRating/UncontrolledRa
 import {OnOff} from './components/OnOff/OnOff';
 import {UncontrolledAccordion} from './components/UncontrolledAccordion/UncontrolledAccordion';
 import {Select} from './components/Select/Select';
+import {Clock} from './components/Clock/Clock';
 
 let items1 = [
     {title: 'Pizza', value: 1},
@@ -86,6 +87,10 @@ function App() {
             <ControlledSelectComponent value={select} items={items3} onChange={(value) => {
                 setSelect(value)
             }}/>
+            <hr/>
+            Clock
+            <hr/>
+            <Clock/>
         </div>
     );
 }
