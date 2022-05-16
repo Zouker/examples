@@ -90,7 +90,10 @@ function App() {
             <hr/>
             Clock
             <hr/>
-            <Clock/>
+            <div style={{display: 'inline-flex', alignItems: 'center', flexDirection: 'column'}}>
+            <Clock mode={'analog'}/>
+            <Clock mode={'digital'}/>
+            </div>
         </div>
     );
 }
@@ -103,6 +106,5 @@ function PageTitle(props: PageTitlePropsType) {
     console.log('AppTitle rendering')
     return <h1>{props.title}</h1>
 }
-
 
 export default App;
